@@ -25,3 +25,17 @@ def create_user(db: Session, user: UserRegister):
     db.refresh(db_user)
 
     return db_user
+
+from app.core.security import verify_password
+
+
+def authenticate_user(db: Session, email: str, password: str):
+    user = get_user_by_email(db, email)
+
+    if not user:
+        return None
+
+    if not verify_password(password, user.password_hash):
+        return None
+
+    return user

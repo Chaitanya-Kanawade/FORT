@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import DashboardLayout from "./layouts/DashboardLayout";
 import ProjectWorkspace from "./pages/ProjectWorkspace";
-
+import AssessmentWorkspace from "./pages/AssessmentWorkspace";
 import ProtectedRoute from "./routes/ProtectedRoute";
 
 export default function App() {
@@ -39,6 +39,14 @@ export default function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/assessments/:id"
+          element={
+            <ProtectedRoute>
+              <AssessmentWorkspace />
+            </ProtectedRoute>
+        }
+      />
 
       </Routes>
 

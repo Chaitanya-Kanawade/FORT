@@ -13,8 +13,31 @@ export async function getProjects() {
 export async function createProject(data: {
   project_name: string;
   target: string;
-  description: string;
+  target_type: string;
 }) {
   const response = await api.post("/projects/", data);
+  return response.data;
+}
+
+export async function getAssessments(projectId: number) {
+  const response = await api.get(
+    `/projects/${projectId}/assessments`
+  );
+
+  return response.data;
+}
+
+export async function createAssessment(
+  projectId: number,
+  data: {
+    assessment_name: string;
+    assessment_type: string;
+  }
+) {
+  const response = await api.post(
+    `/projects/${projectId}/assessments`,
+    data
+  );
+
   return response.data;
 }
