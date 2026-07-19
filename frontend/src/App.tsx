@@ -2,6 +2,8 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Login from "./pages/Login";
 import DashboardLayout from "./layouts/DashboardLayout";
+import ProjectWorkspace from "./pages/ProjectWorkspace";
+
 import ProtectedRoute from "./routes/ProtectedRoute";
 
 export default function App() {
@@ -25,6 +27,15 @@ export default function App() {
           element={
             <ProtectedRoute>
               <DashboardLayout />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/projects/:id"
+          element={
+            <ProtectedRoute>
+              <ProjectWorkspace />
             </ProtectedRoute>
           }
         />
