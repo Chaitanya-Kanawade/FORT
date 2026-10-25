@@ -1,0 +1,26 @@
+# Sensitive configs and secrets
+.env
+*.env.*
+*.pem
+*.key
+config.local.json
+
+# Database and user storage
+*.db
+*.sqlite3
+*.sql
+/uploads/
+/storage/
+/media/
+
+# Dependencies and build folders
+node_modules/
+venv/
+__pycache__/
+dist/
+build/
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
